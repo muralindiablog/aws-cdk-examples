@@ -39,5 +39,14 @@ class LoadBalancerStack extends cdk.Stack {
 }
 
 const app = new cdk.App();
-new LoadBalancerStack(app, 'LoadBalancerStack');
+// Development stage
+new LoadBalancerStack(app, 'LoadBalancerStack-dev',{
+env: {account: '294649033237', region: 'us-east-1'},
+});
+
+// QA stage
+new LoadBalancerStack(app, 'LoadBalancerStack-qa',{
+env: {account: '294649033237', region: 'us-east-1'},
+});
+
 app.synth();
